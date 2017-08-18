@@ -3,8 +3,7 @@
 <html lang="en">
 <head>
 
-    <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -15,7 +14,15 @@
 
 </head>
 <body>
+<nav class="navbar navbar-default">
 
+
+    <a class="btn btn-primary" href="/books" role="button">Main Page</a>
+    <a class="btn btn-primary" href="/books/create" role="button">Create a Book</a>
+
+
+  </div>
+</nav>
 
 <h2>Book Created</h2>
 

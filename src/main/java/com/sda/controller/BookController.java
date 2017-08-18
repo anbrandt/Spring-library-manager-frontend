@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BookController {
 
-    @Autowired
     private BookService bookService;
+
+    @Autowired
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public String books(Map<String, Object> model) {
@@ -28,19 +32,20 @@ public class BookController {
     }
 
     @RequestMapping(value = "/books/create", method = RequestMethod.GET)
-    public String createBook(@ModelAttribute Book book) {
+    public String addBookForm() {
+        return "createbook";
+    }
 
-        //TODO implement book service method here
-
-//        bookService.createBook();
+    @RequestMapping(value = "/books/create", method = RequestMethod.POST)
+    public String createBook() {
 
         //HERE IN RETURN IS THE NAME OF JSP FILE!!!!
         return "createbook";
     }
 
     @RequestMapping(value = "/books/created")
-    public String createdBook() {
-
+    public String createdBook(@ModelAttribute Book book) {
+        bookService.createBook(book);
         return "created";
     }
 }
